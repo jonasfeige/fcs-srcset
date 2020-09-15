@@ -14,7 +14,7 @@ Kirby::plugin('jonasfeige/fcs-srcset', [
                     ['width' => 1280, 'ratio' => 2]
                 ]
             ];
-            $params = A::merge($defaults, $params);
+            $params = array_merge($defaults, $params);
             $srcset = '';
             for ($i = 0; $i < count($params['breakpoints']); $i++) {
                 $image = $this->focusCrop($params['width'] * $params['breakpoints'][$i]['ratio'], $params['height'] * $params['breakpoints'][$i]['ratio'], ['quality' => $params['quality']]);
