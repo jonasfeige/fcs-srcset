@@ -2,7 +2,9 @@
 Custom srcset function for the Kirby Focus Plugin
 
 `$image->fcsSrcset()`
+
 `$image->fcsSrcset(['width' => 500, 'height' => 400]);`
+
 ```
 $image->fcsSrcset(['breakpoints' => 
 [
