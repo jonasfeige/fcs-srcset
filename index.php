@@ -15,13 +15,12 @@ Kirby::plugin('jonasfeige/fcs-srcset', [
                 ]
             ];
             $params = array_merge($defaults, $params);
-            $srcset = '';
+            $set = [];
             for ($i = 0; $i < count($params['breakpoints']); $i++) {
                 $image = $this->focusCrop($params['width'] * $params['breakpoints'][$i]['ratio'], $params['height'] * $params['breakpoints'][$i]['ratio'], ['quality' => $params['quality']]);
-                $srcset .= $image->url() . ' ' . $params['breakpoints'][$i]['width'] . 'w';
-                $srcset .= $i < count($params['breakpoints']) - 1 ? ',' : '';
+                $set[] = $image->url() . ' ' . $params['breakpoints'][$i]['width'] . 'w';
             }
-            return $srcset;
+            return implode(', ', $set);
         }
     ]
 ]);
